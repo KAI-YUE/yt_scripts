@@ -4,6 +4,10 @@
 <lora:cartoony:0.6>,flat color,
 <lora:Japanese_style_Minimalist_Line_Illustrations:0.35>,hand drawing,scribbles,doodle,
 
+
+# negative 
+(easynegative:1.4),FastNegativeV2,(ng_deepnegative_v1_75t:1.4),bad_prompt_version2,badhandsv5-neg,bad_prompt_version2,(bad_pictures:2.0), By bad artist -neg, verybadimagenegative_v1.3,
+
 <lora:cute_lineart_animal02:0.5>
 
 <lora:holo_v1:0.75>,1girl,long hair, blond hair, animal ears, red eyes,
@@ -18,8 +22,10 @@ pleated skirt,mary janes,school uniform,brown footwear,black footwear wsal
 wolf tail, necklace
 <lora:Japanese_style_Minimalist_Line_Illustrations:0.83>,
 
+
 # doctor character 
-<lora:AkiraV4:0.75>,1girl,akirav4, <lora:Japanese_style_Minimalist_Line_Illustrations:0.83>,1 doctor,purple hair,white background, 
+<lora:AkiraV4:0.75>,1girl,akirav4, doctor,purple hair, <lora:Japanese_style_Minimalist_Line_Illustrations:0.83>, 
+white background, 
 
 <!-- <lora:AkiraV4:0.75>,1girl,<lora:Japanese_style_Minimalist_Line_Illustrations:0.8>, 1 doctor, purple hair -->
 
