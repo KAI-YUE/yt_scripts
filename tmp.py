@@ -131,7 +131,7 @@ ffmpeg -hwaccel cuda \
   -i /mnt/win-ssd/Users/93415/Videos/resources/closing_final.mp4 \
   -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 \
   -filter_complex \
-  "[1:v]format=yuva420p, fade=t=in:st=2:d=1:alpha=1, fade=t=out:st=5:d=1:alpha=1, scale=1920:1080:force_original_aspect_ratio=decrease, pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black@0[img1_1]; \
+  "[1:v]format=yuva420p, fade=t=in:st=2:d=0:alpha=1, fade=t=out:st=5:d=0:alpha=1, scale=1920:1080:force_original_aspect_ratio=decrease, pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black@0[img1_1]; \
    [0:v][img1_1]overlay=shortest=1" \
 -c:v h264_nvenc /home/kyue/Downloads/prev/output_video.mp4
 
@@ -144,14 +144,39 @@ ffmpeg -i /home/kyue/Downloads/prev/11.mp4 -i /mnt/win-ssd/Users/93415/Videos/re
 
 
 ffmpeg -i /home/kyue/Downloads/prev/11.mp4 -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 -filter_complex \
-"[1:v]fade=t=in:st=0:d=1:alpha=1,fade=t=out:st=4:d=1:alpha=1,format=yuva420p, scale=1920:1080:force_original_aspect_ratio=decrease[ov]; \
+"[1:v]fade=t=in:st=1:d=0:alpha=1,fade=t=out:st=4:d=0:alpha=1,format=yuva420p, scale=1920:1080:force_original_aspect_ratio=decrease[ov]; \
 [0:v][ov]overlay=1:enable='between(t,1,5)'[v]" \
--map "[v]" -map 0:a -map 1:a? -c:v libx264 -c:a copy /home/kyue/Downloads/prev/output_video.mp4
+-map "[v]" -map 0:a -map 1:a? -c:v h264_nvenc -c:a copy /home/kyue/Downloads/prev/output_video.mp4
 
 
-'ffmpeg -hwaccel cuda -i /home/kyue/Downloads/prev/out0240.mp4 -i '/mnt/ssd/Pictures/YT_source_vd/2/_0_AI technology is advancing/pexels-jack-sparrow-5977261 (2160p).mp4' -i '/mnt/ssd/Pictures/YT_source_vd/2/_0_Solar Project can automatically convert text into video/production_id_5092425 (1080p).mp4' -filter_complex \
-"[1:v]format=yuva420p, fade=t=in:st=8:d=1:alpha=1,fade=t=out:st=11:d=1:alpha=1,scale=1920:1080:force_original_aspect_ratio=decrease; \
-[2:v]format=yuva420p, fade=t=in:st=10:d=1:alpha=1,fade=t=out:st=13:d=1:alpha=1,scale=1920:1080:force_original_aspect_ratio=decrease; \
-[0:v][img1_1] overlay=1:enable='between(t,8,12)' [tmp1]; \
-[tmp1][img2_1] overlay=1:enable='between(t,10,14)'"  \
--c:v h264_nvenc -c:a copy /home/kyue/Downloads/prev/output_video.mp4'
+
+ffmpeg -i /home/kyue/Downloads/prev/11.mp4 -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 -filter_complex \
+"[1:v]format=yuva420p[v2]; \
+ [0:v][v2]overlay=1:0:enable='between(t,10,20)'[v]" \
+-map "[v]" -map 0:a \
+-c:v libx264 -c:a copy /home/kyue/Downloads/prev/output_video.mp4
+
+ffmpeg -hwaccel cuda  -i /mnt/win-ssd/Users/93415/Videos/resources/tmp/closing1.mp4 -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 -filter_complex \
+"[0:v]scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2[v1_scaled]; \
+[1:v]scale=1920:1080:force_original_aspect_ratio=decrease,setpts=PTS-STARTPTS[upper]; \
+[v1_scaled][upper] overlay=enable='between(t,0.1, 1.44)+between(t,2.452,3.668)+between(t,12.03,13.183)+between(t,17.04,18.15)+between(t,20.758,28.032)'[out]" \
+-map [out], \
+-map 0:a -c:v libx264 -preset fast -crf 22 -c:a aac \
+-strict experimental '/mnt/win-ssd/Users/93415/Videos/resources/output_video_based_on_sound.mp4'
+
+
+
+ffmpeg -hwaccel cuda -i /mnt/win-ssd/Users/93415/Videos/resources/tmp/closing1.mp4 -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 -filter_complex \
+"[0:v] scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2[v1_scaled]; \
+[1:v]scale=1920:1080:force_original_aspect_ratio=decrease,setpts=PTS-STARTPTS [upper]; \
+[v1_scaled][upper] overlay=enable='between(t,0.1, 1.44)+between(t,2.452,3.668)+between(t,12.03,13.183)+between(t,17.04,18.15)+between(t,20.758,28.032)'[out]" \
+-map [out] -map 0:a -c:v libx264 -preset fast -crf 22 -c:a aac -strict experimental \
+"/mnt/win-ssd/Users/93415/Videos/resources/output_video_based_on_sound.mp4"
+
+
+ffmpeg -hwaccel cuda -i /mnt/win-ssd/Users/93415/Videos/resources/tmp/closing1.mp4 -i /mnt/win-ssd/Users/93415/Videos/resources/opening.mp4 -filter_complex \
+"[0:v]scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2[v1_scaled]; \
+[1:v]scale=1920:1080:force_original_aspect_ratio=decrease,setpts=PTS-STARTPTS [upper]; \
+[v1_scaled][upper]overlay=enable='between(t,0.0,1.44)+between(t,2.452,3.668)+between(t,12.03,13.183)+between(t,17.04,18.15)+between(t,20.758,28.032)'[out]" \
+-c:v h264_nvenc \
+  /mnt/win-ssd/Users/93415/Videos/resources/output_video_based_on_sound.mp4
