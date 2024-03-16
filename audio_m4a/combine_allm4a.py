@@ -17,7 +17,7 @@ def combine_audio_files(folder_path, output_filename):
     # Export the combined audio as an MP3 file
     combined.export(output_filename, format="mp3")
 
-folder_path = '/mnt/win-ssd/Users/Audio/me/Takeout/Recorder/'  # Replace with your folder path
-output_filename = '/mnt/win-ssd/Users/Audio/me/Takeout/combined_audio.mp3'  # Output file name
+folder_path = '/mnt/win-ssd/Users/93415/Downloads/m4a/'  # Replace with your folder path
+output_filename = '/mnt/win-ssd/Users/93415/Downloads/mp3/output.mp3'  # Output file name
 
 combine_audio_files(folder_path, output_filename)

@@ -73,17 +73,18 @@ def craft_ffmpeg_cmd(v1_path, v2_path, time_ranges, output_path):
 
 
 # Extract audio from the primary video
-primary_video_path = "/mnt/win-ssd/Users/93415/Videos/resources/tmp/closing1.mp4"
-background_video_path = "/mnt/win-ssd/Users/93415/Videos/resources/opening.mp4"
+primary_video_path = "/home/kyue/Desktop/_11_soul.mp4"
+background_video_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/scenarios/_1_flitering_vs_handinpocket/no_talking.mp4"
 audio_extract_path = "/tmp/extracted_audio.mp3"
 extract_audio_cmd = f"ffmpeg -i {primary_video_path} -q:a 0 -map a {audio_extract_path}"
+output_path = "/home/kyue/Desktop/out.mp4"
 run_ffmpeg_command(extract_audio_cmd)
 
 # Detect sound segments in the extracted audio
 sound_segments = detect_sound_segments(audio_extract_path)
 print(sound_segments)
 
-ffmpeg_cmd = craft_ffmpeg_cmd(primary_video_path, background_video_path, sound_segments, "/mnt/win-ssd/Users/93415/Videos/resources/output_video_based_on_sound.mp4")
+ffmpeg_cmd = craft_ffmpeg_cmd(primary_video_path, background_video_path, sound_segments, output_path)
 
 print("-"*80)
 print("".join(ffmpeg_cmd))

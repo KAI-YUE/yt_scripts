@@ -25,8 +25,10 @@ task = "transcribe" if task == "Transcribe" else "translate"
 # select audio file
 
 # audio_file = "/home/kyue/Audio/YT/mrgao/origin_bible.wav" #@param {type:"string"}
-audio_file = "/home/kyue/Audio/_1_eden_.wav"
+audio_file = "/home/kyue/Downloads/_1_ai.mp3"
+audio_file = "/home/kyue/Desktop/_1_soul.mp3"
 # audio_file = "/mnt/ssd/YUE/steingate/english/lab_open.wav"
+# audio_file = "/home/kyue/Audio/topics/childhood_disappearance.mp3"
 
 audio_files = list(map(lambda audio_path: audio_path.strip(), audio_file.split(',')))
 

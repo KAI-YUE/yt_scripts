@@ -2,15 +2,19 @@ import os
 import re
 import subprocess
 
-# Path to the parent folder containing subfolders
-parent_folder = "/mnt/ssd/Pictures/YT_source_vd/2/"
-# Path to the text file with timings
-timings_file_path = "/home/kyue/Projects/YT/audio_transcription/_1_eden_keyword.vtt"
-# Path to the base video
-base_video_path = "/home/kyue/Downloads/prev/out0240.mp4"
-# Output video path
-output_video_path = "/home/kyue/Downloads/prev/output_video.mp4"
+index = 1
 
+# Path to the parent folder containing subfolders
+parent_folder = "/mnt/ssd/Pictures/YT_source_vd/{:d}/".format(index)
+# Path to the text file with timings
+timings_file_path = "/home/kyue/Projects/YT/audio_transcription/keyword.txt"
+# Path to the base video
+base_video_path = "/home/kyue/Desktop/output_video.mp4"
+# Output video path
+output_video_path = "/home/kyue/Desktop/merge_vid.mp4"
+
+
+ref_img_folder = "/mnt/ssd/Pictures/YT_sources/{:d}/".format(index)
 
 
 # Other parts of the script remain the same
@@ -53,7 +57,7 @@ def list_images_in_subfolders(parent_folder):
 
 # Constructing the FFmpeg command
 # Function to construct the FFmpeg command
-def construct_ffmpeg_cmd(base_video, images, timings, output_video):
+def construct_ffmpeg_cmd(base_video, images, timings, output_path):
     input_cmds = [f"-i {base_video}"]
     filter_complex_cmds = []
     overlay_filters = []
@@ -73,15 +77,31 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
                 duration = 8  # Default duration for each image
                 fade_duration = 1  # Default fade duration
                 
+                # Find the last occurrence of '/' and keep everything before it
+                path_without_filename = img_path.rsplit('/', 1)[0]
+
+                # Step 2: Replace 'YT_source_vd' with 'YT_sources'
+                updated_path = path_without_filename.replace("YT_source_vd", "YT_sources")
+
+                # Count the number of files under the updated path
+                file_count = 0
+                for root, dirs, files in os.walk(updated_path):
+                    file_count += len(files)
+
+                # depends on the number of image files in the folder, we will add an delay
+                delay = 3 + file_count*5
+
+                # incremental_time = 0
+
                 # Use incremental_time for fade in/out instead of start_time
                 filter_complex_cmds.append(
-                    f"[{input_index}:v]format=yuva420p, fade=t=in:st={incremental_time}:d={fade_duration}:alpha=1,"
-                    f"fade=t=out:st={incremental_time + duration - fade_duration}:d={fade_duration}:alpha=1,"
+                    f"[{input_index}:v] setpts=PTS-STARTPTS+{incremental_time+delay}/TB, format=yuva420p, fade=t=in:st={incremental_time+delay}:d={fade_duration}:alpha=1,"
+                    f"fade=t=out:st={incremental_time + duration - fade_duration + delay}:d={fade_duration}:alpha=1,"
                     f"scale=1920:1080:force_original_aspect_ratio=decrease [img{idx}_{img_idx}];"
                     # f"pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black@0[img{idx}_{img_idx}];"
                 )
                 overlay_filters.append(
-                    f"[tmp{counter}][img{idx}_{img_idx}] overlay=1:enable='between(t,{incremental_time},{incremental_time + duration})' [tmp{counter+1}];"
+                    f"[tmp{counter}][img{idx}_{img_idx}] overlay=enable=gte(t\,5) [tmp{counter+1}];"
                 )
                 
                 # Increment the time for the next image
@@ -89,11 +109,14 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
                 counter += 1
     
     # Final overlay command uses the last tmp variable, so we remove the last "[tmpX]" from the command
-    final_overlay_cmd = "".join(overlay_filters).replace("[tmp0][img1_1]", "[0:v][img1_1]").rstrip(f"; [tmp{counter}]")
+    # final_overlay_cmd = "".join(overlay_filters).replace("[tmp0][img1_1]", "[0:v][img1_1]").rstrip(f"; [tmp{counter}]")
+    final_overlay_cmd = "".join(overlay_filters).replace("[tmp0]", "[0:v]")
+    final_overlay_cmd = final_overlay_cmd[:-8]
+    final_overlay_cmd += f"[out]"
 
     ffmpeg_cmd = (
         f"ffmpeg -hwaccel cuda {' '.join(input_cmds)} -filter_complex \"{' '.join(filter_complex_cmds + [final_overlay_cmd])}\" "
-        f" -c:v h264_nvenc -c:a copy {output_video}"
+        f" -c:v h264_nvenc -map [out] -map 0:a -preset fast -crf 22 -c:a aac -strict experimental {output_path}"
     )
     
     return ffmpeg_cmd

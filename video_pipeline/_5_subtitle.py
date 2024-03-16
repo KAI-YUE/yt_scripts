@@ -66,7 +66,8 @@ def create_caption_image_with_base(text, base_image_path=None, image_size=(1920,
     
     # Calculate starting Y position
     y = (image_size[1] - text_height_total) / 2
-    
+    y -= 200
+
     # Draw each line
     for line in lines:
         line_width, line_height = draw.textsize(line, font=font)
@@ -95,10 +96,11 @@ def convert_to_ama_title_case(text):
 
 # Example usage
 
-save_path = "/home/kyue/Pictures/tmp/caption_default_font.png"
-font_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/drawing-guides-font/chalk.ttf"
-font_size = 140
+save_path = "/home/kyue/Desktop/caption_default_font.png"
+font_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/drawing-guides-font/chalk.ttf"
+base_image_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/background1.png"
+font_size = 190
 
-subtitle_text = "I love chloe"
-caption_default_font_path = create_caption_image_with_base(subtitle_text, save_path=save_path, font_path=font_path, font_size=font_size)
+subtitle_text = "Lifespan and Telomere length"
+caption_default_font_path = create_caption_image_with_base(subtitle_text, base_image_path, save_path=save_path, font_path=font_path, font_size=font_size)
 print(f"Caption image saved at: {caption_default_font_path}")

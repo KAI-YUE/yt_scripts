@@ -2,14 +2,16 @@ import os
 import re
 import subprocess
 
+index = 1
+
 # Path to the parent folder containing subfolders
-parent_folder = "/mnt/ssd/Pictures/YT_sources/1/"
+parent_folder = "/mnt/ssd/Pictures/YT_sources/{:d}/".format(index)
 # Path to the text file with timings
-timings_file_path = "/home/kyue/Projects/YT/audio_transcription/_1_eden_keyword.vtt"
+timings_file_path = "/home/kyue/Projects/YT/audio_transcription/keyword.txt"
 # Path to the base video
-base_video_path = "/home/kyue/Downloads/out0240.mp4"
+base_video_path = "/home/kyue/Desktop/ss.mp4"
 # Output video path
-output_video_path = "/home/kyue/Downloads/output_video.mp4"
+output_video_path = "/home/kyue/Desktop/output_video.mp4"
 
 
 
@@ -61,6 +63,7 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
     counter = 0
     # Incremental offset in seconds for images within the same category
     incremental_offset = 1  # Adjust as needed to control the display duration of each image
+    delay = 3
 
     for idx, (desc, start_time) in enumerate(timings, start=1):
         if desc in images:
@@ -70,13 +73,13 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
             for img_idx, img_path in enumerate(images[desc], start=1):
                 input_cmds.append(f"-i '{img_path}'")
                 input_index = len(input_cmds) - 1  # Adjust for zero-based index
-                duration = 4  # Default duration for each image
+                duration = 5  # Default duration for each image
                 fade_duration = 1  # Default fade duration
                 
                 # Use incremental_time for fade in/out instead of start_time
                 filter_complex_cmds.append(
-                    f"[{input_index}:v]loop=loop=-1:size=1:start=0, format=yuva420p, fade=t=in:st={incremental_time}:d={fade_duration}:alpha=1,"
-                    f"fade=t=out:st={incremental_time + duration - fade_duration}:d={fade_duration}:alpha=1,"
+                    f"[{input_index}:v]loop=loop=-1:size=1:start=0, format=yuva420p, fade=t=in:st={incremental_time+delay}:d={fade_duration}:alpha=1,"
+                    f"fade=t=out:st={incremental_time + duration + delay - fade_duration}:d={fade_duration}:alpha=1,"
                     f"scale=1920:1080:force_original_aspect_ratio=decrease,"
                     f"pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black@0[img{idx}_{img_idx}];"
                 )
@@ -87,9 +90,13 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
                 # Increment the time for the next image
                 incremental_time += incremental_offset
                 counter += 1
+
+                continue
     
     # Final overlay command uses the last tmp variable, so we remove the last "[tmpX]" from the command
-    final_overlay_cmd = "".join(overlay_filters).replace("[tmp0][img1_1]", "[0:v][img1_1]").rstrip(f"; [tmp{counter}]")
+    # final_overlay_cmd = "".join(overlay_filters).replace("[tmp0]", "[0:v]").rstrip(f"; [tmp{counter}]")
+    final_overlay_cmd = "".join(overlay_filters).replace("[tmp0]", "[0:v]")
+    final_overlay_cmd = final_overlay_cmd[:-8]
 
     ffmpeg_cmd = (
         f"ffmpeg -hwaccel cuda {' '.join(input_cmds)} -filter_complex \"{' '.join(filter_complex_cmds + [final_overlay_cmd])}\" "

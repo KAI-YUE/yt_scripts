@@ -15,8 +15,11 @@ def convert_to_wav(input_file, output_file):
 # Usage example
 # input_file = "/home/kyue/Downloads/22.mp4"
 # input_file = "/home/kyue/Downloads/11.mp4"
-input_file = "/mnt/win-ssd/Users/93415/Videos/_1_eden_.mp4"
+# input_file = "/mnt/win-ssd/Users/93415/Downloads/_1_lifespan/_1_yuri.mp4"
+input_file = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/hand/pen_onpaper.mp4"
+input_file = "/home/kyue/Downloads/_1_ai.mp4"
 
 # WAV file
-output_file = "/home/kyue/Audio/_1_eden_.wav"
+output_file = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/hand/pen_onpaper.mp3"
+output_file = "/home/kyue/Downloads/_1_ai.mp3"
 convert_to_wav(input_file, output_file)

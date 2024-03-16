@@ -20,8 +20,9 @@ def read_keywords():
     
     # read key words from a txt file
     # Define the path to your document
-    file_path = '/home/kyue/Projects/YT/audio_transcription/_1_eden_keyword.txt'
-    
+    # file_path = '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
+    file_path = '/home/kyue/Projects/YT/ai_trans/1_1soul/keyword.txt'
+
     # Initialize an empty list to hold the keywords
     keywords = []
     

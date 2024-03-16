@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:10,000
+Hello, I'm Dr. K. Today we are diving into AI and human life speed.
+
+2
+00:00:10,000 --> 00:00:17,000
+You've probably noticed that the AI revolution is speeding up.
+
+3
+00:00:17,000 --> 00:00:23,000
+Like generative AI can turn your imagination into images or videos.
+
+4
+00:00:23,000 --> 00:00:29,000
+I would say this is a real game changer for movies and game creators.
+
+5
+00:00:29,000 --> 00:00:32,000
+Even in terms of computer programming.
+
+6
+00:00:32,000 --> 00:00:37,000
+I mean, it can whip up a website for you within 10 to 20 minutes.
+
+7
+00:00:37,000 --> 00:00:45,000
+Imagine that 30 years back, if you want to build a website like Amazon, you need a team of top engineers.
+
+8
+00:00:45,000 --> 00:00:50,000
+Now, even a noob can get AI to help him implement it.
+
+9
+00:00:50,000 --> 00:00:56,000
+As an expert in this field, I would say this is really revolutionary.
+
+10
+00:00:56,000 --> 00:00:59,000
+But there's a catch.
+
+11
+00:00:59,000 --> 00:01:04,000
+These AI tools often have an input limit or time limit.
+
+12
+00:01:04,000 --> 00:01:11,000
+Like Microsoft's Bing, it capsules away 2,000 to 4,000 words.
+
+13
+00:01:11,000 --> 00:01:16,000
+When it's answering a question, it feels like it's counting each word.
+
+14
+00:01:16,000 --> 00:01:24,000
+And the new Solar project by OpenAI can only generate 1 to 2 minute videos.
+
+15
+00:01:24,000 --> 00:01:30,000
+Good point. It seems like these mega companies are just gouting their computational power.
+
+16
+00:01:30,000 --> 00:01:36,000
+Or they're intentionally adding a lifespan to these AI programs.
+
+17
+00:01:36,000 --> 00:01:42,000
+Yuri, have you ever wondered about why human beings have lifespans?
+
+18
+00:01:43,000 --> 00:01:46,000
+First up, telomeres.
+
+19
+00:01:46,000 --> 00:01:51,000
+Our DNAs like coding or text in a book.
+
+20
+00:01:51,000 --> 00:01:55,000
+DNAs pretty much set up everything for us.
+
+21
+00:01:55,000 --> 00:01:59,000
+Your looks, your smartness, you name it.
+
+22
+00:01:59,000 --> 00:02:03,000
+Imagine your body's information is a huge library.
+
+23
+00:02:04,000 --> 00:02:12,000
+And those 46 chromosomes in each cell of your body, they're just like 46 books.
+
+24
+00:02:12,000 --> 00:02:16,000
+The contents in these books shape us.
+
+25
+00:02:16,000 --> 00:02:22,000
+Telomeres are just like borrow cards on the pocket of the cover.
+
+26
+00:02:22,000 --> 00:02:29,000
+Where every time the cell copies itself, a line on the borrow card will be gone.
+
+27
+00:02:29,000 --> 00:02:34,000
+When the card is used up, no more borrowing, no more renew.
+
+28
+00:02:34,000 --> 00:02:37,000
+It means the cell cannot split anymore.
+
+29
+00:02:37,000 --> 00:02:42,000
+It means those cells have reached their lifespans.
+
+30
+00:02:42,000 --> 00:02:47,000
+Research says telomere lengths can predict lifespan pretty well.
+
+31
+00:02:47,000 --> 00:02:52,000
+For example, women's telomere lengths are longer than men's.
+
+32
+00:02:52,000 --> 00:02:56,000
+Hence, women generally outlive men.
+
+33
+00:02:56,000 --> 00:03:02,000
+In the U.S., women live about five to six years longer than men.
+
