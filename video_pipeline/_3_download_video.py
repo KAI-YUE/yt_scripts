@@ -16,6 +16,9 @@ from threading import Thread
 
 import shutil
 
+series_num = 22
+prefix = "/mnt/ssd/Pictures/YT_source_vd/{:d}".format(series_num)
+
 def read_keywords():
     # keyword = "puppies"
     
@@ -80,9 +83,7 @@ def run_with_timeout(func, args=(), kwargs={}, timeout_duration=10):
 downloads_folder = "/home/kyue/Downloads/"
 
 
-series_num = 1
-offset = 10
-prefix = "/mnt/ssd/Pictures/YT_source_vd/{:d}".format(series_num)
+
 if not os.path.exists(prefix):
     os.mkdir(prefix)
 

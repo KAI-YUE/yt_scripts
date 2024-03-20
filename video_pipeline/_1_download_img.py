@@ -15,13 +15,15 @@ import threading
 from threading import Thread
 
 
+series_num = 22
+
 def read_keywords():
     # keyword = "puppies"
     
     # read key words from a txt file
     # Define the path to your document
     # file_path = '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
-    file_path = '/home/kyue/Projects/YT/ai_trans/1_1soul/keyword.txt'
+    file_path = '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
 
     # Initialize an empty list to hold the keywords
     keywords = []
@@ -77,7 +79,7 @@ def run_with_timeout(func, args=(), kwargs={}, timeout_duration=10):
 
 def main():
     
-    series_num = 1
+    
     offset = 10
     prefix = "/mnt/ssd/Pictures/YT_sources/{:d}".format(series_num)
     if not os.path.exists(prefix):

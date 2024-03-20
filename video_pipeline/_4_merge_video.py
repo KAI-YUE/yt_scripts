@@ -2,14 +2,14 @@ import os
 import re
 import subprocess
 
-index = 1
+index = 22
 
 # Path to the parent folder containing subfolders
 parent_folder = "/mnt/ssd/Pictures/YT_source_vd/{:d}/".format(index)
 # Path to the text file with timings
-timings_file_path = "/home/kyue/Projects/YT/audio_transcription/keyword.txt"
+timings_file_path = '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
 # Path to the base video
-base_video_path = "/home/kyue/Desktop/output_video.mp4"
+base_video_path = "/home/kyue/Desktop/_{:d}_sushi.mp4".format(index)
 # Output video path
 output_video_path = "/home/kyue/Desktop/merge_vid.mp4"
 
@@ -101,7 +101,7 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_path):
                     # f"pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=black@0[img{idx}_{img_idx}];"
                 )
                 overlay_filters.append(
-                    f"[tmp{counter}][img{idx}_{img_idx}] overlay=enable=gte(t\,5) [tmp{counter+1}];"
+                    f"[tmp{counter}][img{idx}_{img_idx}] overlay=enable=gte(t\,3) [tmp{counter+1}];"
                 )
                 
                 # Increment the time for the next image

@@ -75,6 +75,22 @@ def craft_ffmpeg_cmd(v1_path, v2_path, time_ranges, output_path):
 # Extract audio from the primary video
 primary_video_path = "/home/kyue/Desktop/_11_soul.mp4"
 background_video_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/scenarios/_1_flitering_vs_handinpocket/no_talking.mp4"
+
+
+primary_video_path = "/home/kyue/Desktop/_12_soul.mp4"
+scene = "_2_skpetical_vs_enthus/"
+
+primary_video_path = "/home/kyue/Desktop/_13_soul.mp4"
+scene = "_4_holo_holdpen_layonsofa/"
+
+primary_video_path = "/home/kyue/Desktop/_22_sushi.mp4"
+scene = "_5_raisefinger_vs_holdhair/"
+scene = "_3_thumbup_reserved"
+
+
+
+background_video_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/scenarios/{:s}/no_talking.mp4".format(scene)
+
 audio_extract_path = "/tmp/extracted_audio.mp3"
 extract_audio_cmd = f"ffmpeg -i {primary_video_path} -q:a 0 -map a {audio_extract_path}"
 output_path = "/home/kyue/Desktop/out.mp4"

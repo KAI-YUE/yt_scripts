@@ -2,14 +2,14 @@ import os
 import re
 import subprocess
 
-index = 1
+index = 22
 
 # Path to the parent folder containing subfolders
 parent_folder = "/mnt/ssd/Pictures/YT_sources/{:d}/".format(index)
 # Path to the text file with timings
-timings_file_path = "/home/kyue/Projects/YT/audio_transcription/keyword.txt"
+timings_file_path =  '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
 # Path to the base video
-base_video_path = "/home/kyue/Desktop/ss.mp4"
+base_video_path = "/home/kyue/Desktop/_22_sushi.mp4"
 # Output video path
 output_video_path = "/home/kyue/Desktop/output_video.mp4"
 
@@ -62,7 +62,7 @@ def construct_ffmpeg_cmd(base_video, images, timings, output_video):
 
     counter = 0
     # Incremental offset in seconds for images within the same category
-    incremental_offset = 1  # Adjust as needed to control the display duration of each image
+    incremental_offset = 4  # Adjust as needed to control the display duration of each image
     delay = 3
 
     for idx, (desc, start_time) in enumerate(timings, start=1):

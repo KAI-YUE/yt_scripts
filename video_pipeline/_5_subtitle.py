@@ -95,12 +95,15 @@ def convert_to_ama_title_case(text):
     return ' '.join(final_title)
 
 # Example usage
+keywords = ["Penrose: Quantum Soul"]
 
-save_path = "/home/kyue/Desktop/caption_default_font.png"
-font_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/drawing-guides-font/chalk.ttf"
-base_image_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/background1.png"
-font_size = 190
+for i, subtitle_text in enumerate (keywords):
 
-subtitle_text = "Lifespan and Telomere length"
-caption_default_font_path = create_caption_image_with_base(subtitle_text, base_image_path, save_path=save_path, font_path=font_path, font_size=font_size)
-print(f"Caption image saved at: {caption_default_font_path}")
+    save_path = "/home/kyue/Desktop/caption_{:d}.png".format(i)
+    font_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/drawing-guides-font/chalk.ttf"
+    base_image_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/blackboard/background1.png"
+    font_size = 160
+
+    # subtitle_text = "Lifespan and Telomere length"
+    caption_default_font_path = create_caption_image_with_base(subtitle_text, base_image_path, save_path=save_path, font_path=font_path, font_size=font_size)
+    print(f"Caption image saved at: {caption_default_font_path}")
