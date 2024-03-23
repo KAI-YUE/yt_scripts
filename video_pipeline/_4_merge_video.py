@@ -2,14 +2,14 @@ import os
 import re
 import subprocess
 
-index = 22
+index = 32
 
 # Path to the parent folder containing subfolders
 parent_folder = "/mnt/ssd/Pictures/YT_source_vd/{:d}/".format(index)
 # Path to the text file with timings
 timings_file_path = '/home/kyue/Projects/YT/audio_transcription/keyword.txt'
 # Path to the base video
-base_video_path = "/home/kyue/Desktop/_{:d}_sushi.mp4".format(index)
+base_video_path = "/home/kyue/Desktop/_{:d}_.mp4".format(index)
 # Output video path
 output_video_path = "/home/kyue/Desktop/merge_vid.mp4"
 

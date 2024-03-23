@@ -1,0 +1,65 @@
+Today, we're going to talk about reincarnation.
+Just a few days ago, we discussed Penrose and the theory of quantum soul, which posits
+that the state of your brain is synchronized with quantum particles somewhere in the universe.
+It feels like you're playing a life simulation game, and there's also a free cloud backup
+on Steam.
+So how do we retrieve the backup?
+When I woke up from a coma, I had lost all my memories.
+You will retrieve your memories in the distant future.
+But by the time you do, you will no longer be who you are now.
+It's somewhat like auto-writing a save file.
+Let's start with the mathematical field of the Poincaré recurrence theorem.
+In a nutshell, everything you'd experienced could potentially happen again in the future.
+Henri Poincaré, one of France's greatest mathematicians, was also an astronomer, mathematical
+physicist, theoretical scientist, and philosopher of science.
+Poincaré is recognized as the leading mathematician of the last quarter of the 19th century and
+the early 20th century, and the last mathematician to have a comprehensive knowledge of mathematics
+and its applications following Gauss.
+His outstanding work in mathematics had a profound impact on the field.
+His research in celestial mechanics is another milestone after Newton, and he is also acknowledged
+as a precursor to the theory of relativity for his studies on electron theory.
+The Poincaré theorem, also known as Poincaré recurrence or Poincaré's return, is not
+a physical law that needs verification, but a mathematical theorem.
+The proof of Poincaré's recurrence theorem might appear brief, yet it involves a lot
+of measure theory and set theory fundamentals.
+Simply put, the theorem states that a dynamical system will, after a sufficient amount of
+time, return to a state very close to its initial condition.
+This may seem to contradict the thermodynamic principle of entropy increase.
+The former states it is impossible to return, while Poincaré said it is possible.
+I'll explain more about this entropy increase principle to you all when we get the chance.
+How long does it take for the system go back to the origin?
+I'll hold off on answering that for now.
+It's somewhat similar to the infinite monkey theorem in probability theory.
+If a monkey randomly types on a typewriter for a sufficiently long time, it is almost
+certain to type out the complete words of Shakespeare.
+With an infinite number of monkeys, they could instantly produce all possible texts
+that could exist in a library.
+Of course, in reality, if you had all the monkeys in the universe typing away, after
+10,000 years, they'd likely only produce a bunch of meaningless symbols.
+Are there any other monkeys in the universe besides us?
+I'll also hold off on answering that.
+I'll explain the answer to this question and the Fermi paradox in the future.
+Back to the Poincaré theorem.
+Microscopically, within a system, the particles are moving in a disorderly manner and continuously
+so, and there will always be a time when the particles return to their initial positions.
+This means events will recur.
+For example, at some moment in the future, our audience will re-watch our video.
+Another simpler example.
+If you roll two dice, the probability of getting two sixes is low.
+But if you keep rolling, it will eventually happen over and over again.
+Let's use yourself as an example.
+The moment you are born is the starting point.
+Your entire life unfolds.
+At some point, conditions identical to those at the time of your birth arise again.
+That is, the entire universe, social environment, your parents, etc.
+And you are born again.
+Everything must be exactly the same for it to be considered a recurrence.
+Even a slight deviation in any condition would not count.
+This might seem impossible to imagine.
+If we add another condition, that the life of the reoccurred you is exactly the same
+as your current life, it would mean the universe has already experienced all possible variations
+of your life that differ from the current one.
+There must be countless variations of your life with deviations.
+The probability of such a recurrence would surely be nil.
+Given enough time, nothing is impossible.
+Perhaps God is rolling a multi-faced die to pass the time during an eternity of boredom.

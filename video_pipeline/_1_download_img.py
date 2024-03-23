@@ -15,7 +15,7 @@ import threading
 from threading import Thread
 
 
-series_num = 22
+series_num = 32
 
 def read_keywords():
     # keyword = "puppies"

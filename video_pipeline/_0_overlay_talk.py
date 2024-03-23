@@ -87,7 +87,14 @@ primary_video_path = "/home/kyue/Desktop/_22_sushi.mp4"
 scene = "_5_raisefinger_vs_holdhair/"
 scene = "_3_thumbup_reserved"
 
+primary_video_path = "/home/kyue/Desktop/_31_.mp4"
+scene = "_13_holdpen_vs_holdhaor"
 
+primary_video_path = "/home/kyue/Desktop/_32_.mp4"
+scene = "_8_holo_raisehand_vs_coolpose"
+
+primary_video_path = "/home/kyue/Desktop/_33_.mp4"
+scene = "_6_holo_numb_vs_micro"
 
 background_video_path = "/mnt/win-ssd/Users/youtube+pics/nowhand_drawing/scenarios/{:s}/no_talking.mp4".format(scene)
 

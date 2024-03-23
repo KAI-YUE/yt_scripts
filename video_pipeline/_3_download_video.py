@@ -16,7 +16,7 @@ from threading import Thread
 
 import shutil
 
-series_num = 22
+series_num = 32
 prefix = "/mnt/ssd/Pictures/YT_source_vd/{:d}".format(series_num)
 
 def read_keywords():

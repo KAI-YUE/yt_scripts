@@ -46,3 +46,11 @@ simple drawing,a girl lying on the bed,<lora:DoodleRedmond-Doodle-DoodleRedm:0.4
 
 <lora:cartoony:1>,flat color,blackboard,lab,future gadget lab,<lora:simple_drawing_xl_b1-000012:0.5>,simple drawing,
 <lora:Japanese_style_Minimalist_Line_Illustrations:0.5>,
+
+
+### ending art 
+many screens, room,with text "dude" on the screen,<lora:cartoony:0.6>,flat color,
+hand drawing,scribbles,doodle, simple lines
+
+1280
+720
